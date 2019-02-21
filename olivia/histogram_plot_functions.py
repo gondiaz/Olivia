@@ -85,7 +85,7 @@ def plot_histogram(histogram, ax=None, plot_errors=False, draw_color='black', st
                         verticalalignment   = 'top')
 
     elif len(bins) == 2:
-        ax.pcolormesh(bins[0], bins[1], entries.T)
+        ax.pcolormesh(bins[0], bins[1], entries.T, cmap='jet')
         ax.set_ylabel(labels[1], weight='bold', fontsize=20)
 
         if stats:
