@@ -5,8 +5,8 @@ from olivia.hist_io import get_histograms_from_file
 from olivia.histos  import Histogram
 from olivia.histos  import HistoManager
 
-from invisible_cities.icaro.hst_functions  import shift_to_bin_centers
-from invisible_cities.core .core_functions import weighted_mean_and_std
+from invisible_cities.core.core_functions  import shift_to_bin_centers
+from invisible_cities.core.core_functions import weighted_mean_and_std
 
 
 def plot_histograms_from_file(histofile,
