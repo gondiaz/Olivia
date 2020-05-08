@@ -10,11 +10,11 @@ from olivia.histos import        HistoManager
 from invisible_cities.database import         load_db as   dbf
 from invisible_cities.core     import system_of_units as units
 
-from invisible_cities.io  .pmaps_io                import      load_pmaps
-from invisible_cities.io  .dst_io                  import        load_dst
-from invisible_cities.reco.tbl_functions           import get_rwf_vectors
-from invisible_cities.reco.calib_sensors_functions import           modes
-from invisible_cities.reco.calib_functions         import      SensorType
+from invisible_cities.io  .pmaps_io                import load_pmaps
+from invisible_cities.io  .dst_io                  import load_dst
+from invisible_cities.reco.tbl_functions           import get_vectors
+from invisible_cities.reco.calib_sensors_functions import modes
+from invisible_cities.reco.calib_functions         import SensorType
 
 
 def pmap_bins(config_dict):
