@@ -122,7 +122,7 @@ def fill_pmap_var_1d(speaks, var_dict, ptype, DataSiPM=None):
 
             sipm_ids = speak.sipms.ids
             sipm_Q   = speak.sipms.sum_over_times
-            
+
             var_dict    [ptype + '_NSiPM' ].append(len(sipm_ids))
             var_dict    [ptype + '_QSiPM' ].extend(sipm_Q)
             var_dict    [ptype + '_IdSiPM'].extend(sipm_ids)
@@ -289,10 +289,11 @@ def fill_rwf_histos(in_path, config_dict):
     for in_file in glob.glob(in_path):
         with tb.open_file(in_file, "r") as h5in:
             var = defaultdict(list)
-            nevt, pmtrwf, sipmrwf, _ = get_rwf_vectors(h5in)
-            for evt in range(nevt):
-                fill_rwf_var(pmtrwf [evt, :, :n_baseline], var, SensorType. PMT)
-                fill_rwf_var(sipmrwf[evt]                , var, SensorType.SIPM)
+            pmtrwfs, _, sipmrwfs = get_vectors(h5in)
+
+            for pmtrwf, sipmrwf in zip(pmtrwfs, sipmrwfs):
+                fill_rwf_var(pmtrwf [:, :n_baseline], var, SensorType. PMT)
+                fill_rwf_var(sipmrwf                , var, SensorType.SIPM)
 
         histo_manager.fill_histograms(var)
     return histo_manager
